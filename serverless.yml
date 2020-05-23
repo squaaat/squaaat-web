@@ -1,0 +1,10 @@
+# serverless.yml
+squaaat:
+  component: serverless-next.js
+  inputs:
+    domain:
+      - ${env.subdomain}
+      - ${env.domain}
+    build:
+      env:
+        stage: ${env.stage}
