@@ -1,0 +1,22 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-squaaat-dev-235952-authRole",
+            "UnauthRoleArn": "arn:aws:iam::272141353655:role/amplify-squaaat-dev-235952-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::272141353655:role/amplify-squaaat-dev-235952-authRole",
+            "Region": "ap-northeast-2",
+            "DeploymentBucketName": "amplify-squaaat-dev-235952-deployment",
+            "UnauthRoleName": "amplify-squaaat-dev-235952-unauthRole",
+            "StackName": "amplify-squaaat-dev-235952",
+            "StackId": "arn:aws:cloudformation:ap-northeast-2:272141353655:stack/amplify-squaaat-dev-235952/0fa7a0f0-9d06-11ea-91ef-0a9ea1ebc906",
+            "AmplifyAppId": "d2y66l6mgvyd8v"
+        },
+        "categories": {
+            "auth": {
+                "squaaatf1732694": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"976587426952-u11p8mmc1c54iv3muk6u343rnpmud4ke.apps.googleusercontent.com\",\"client_secret\":\"mVo0Ap8KT0VCM8gReJ5n3tvo\"}]"
+                }
+            }
+        }
+    }
+}
