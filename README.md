@@ -9,3 +9,10 @@ yarn
 yarn dev
 ```
 
+## How to deploy it?
+
+```bash
+sls --stage dev
+sls --stage prod
+```
+
