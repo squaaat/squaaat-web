@@ -1,10 +1,10 @@
+import React from 'react';
 import Layout from '../components/Layout'
 import 'styles/base.scss';
 import Amplify, { Auth, Hub } from 'aws-amplify';
 import awsconfig from '../aws-exports.js';
-import { withOAuth } from 'aws-amplify-react';
 
-import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
+import { AmplifySignOut } from '@aws-amplify/ui-react';
 
 Amplify.configure(awsconfig);
 
@@ -28,7 +28,7 @@ const IndexPage = () => {
     <Layout title="!SQUAAAT">
       <h1 style={{fontSize: '64pt', textAlign:'center', letterSpacing: '4px'}}>!SQUAAAT</h1>
       {user === null && <p style={{textAlign: 'center'}}>
-        <button onClick={() => Auth.federatedSignIn({provider: 'Google'})}>Open Google</button>
+        <button onClick={() => Auth.federatedSignIn({ customProvider: "Google"})}>Open Google</button>
       </p>}
       {
         user && 
