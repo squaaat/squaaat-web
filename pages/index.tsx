@@ -24,11 +24,13 @@ const IndexPage = () => {
       }
     });
   },[]);
+  console.log(process.env.OAUTH);
   return (
-    <Layout title="!SQUAAAT">
+    <Layout title={`!Squaaat (${process.env.STAGE})`}>
       <h1 style={{fontSize: '64pt', textAlign:'center', letterSpacing: '4px'}}>!SQUAAAT</h1>
       {user === null && <p style={{textAlign: 'center'}}>
         <button onClick={() => Auth.federatedSignIn({ customProvider: "Google"})}>Open Google</button>
+        <button onClick={() => Auth.federatedSignIn({ customProvider: "Facebook"})}>Open Facebook</button>
       </p>}
       {
         user && 

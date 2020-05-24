@@ -4,6 +4,13 @@ node_modules
 
 
 .env
+.env.local
+
+env-dev
+env-prod
+
+env-development
+env-production
 
 #amplify
 amplify/\#current-cloud-backend
@@ -15,6 +22,7 @@ build/
 dist/
 node_modules/
 aws-exports.js
+aws-exports2.js
 awsconfiguration.json
 amplifyconfiguration.json
 amplify-build-config.json
