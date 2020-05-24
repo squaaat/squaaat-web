@@ -13,6 +13,7 @@ const IndexPage = () => {
 
   React.useEffect(()=>{
     Hub.listen("auth", ({ payload: { event, data } }) => {
+      console.log(event);
       switch (event) {
         case "signIn":
           console.log(data);
@@ -23,23 +24,55 @@ const IndexPage = () => {
           break;
       }
     });
+    Auth.currentAuthenticatedUser().then((res)=>{
+      setUser(res);
+      console.log('login...');
+    }).catch((e)=>{
+      console.log(e);
+      console.log("Not signed in");
+    })
   },[]);
-  console.log(process.env.OAUTH);
+
+  function oauth(provider: string){
+    Auth.federatedSignIn({ customProvider: provider }).then((res)=>{
+      console.log(res);
+    })
+
+  }
   return (
     <Layout title={`!Squaaat (${process.env.STAGE})`}>
       <h1 style={{fontSize: '64pt', textAlign:'center', letterSpacing: '4px'}}>!SQUAAAT</h1>
-      {user === null && <p style={{textAlign: 'center'}}>
-        <button onClick={() => Auth.federatedSignIn({ customProvider: "Google"})}>Open Google</button>
-        <button onClick={() => Auth.federatedSignIn({ customProvider: "Facebook"})}>Open Facebook</button>
-      </p>}
-      {
-        user && 
-        <div style={{maxWidth: '768px', margin: 'auto'}}>
-          <p>{user.username}</p>
+
+      {true && <>
+        {user === null && <p style={{textAlign: 'center'}}>
+          <button onClick={() => oauth('Google')}>Open Google</button>
+          <button disabled onClick={() => Auth.federatedSignIn({ customProvider: "Facebook"})}>Open Facebook</button>
           <AmplifySignOut />
 
-        </div>
-      }
+        </p>}
+        {
+          user && 
+          <div style={{maxWidth: '768px', margin: 'auto'}}>
+            <p>{user.username}</p>
+            <AmplifySignOut />
+
+          </div>
+        }
+      </>}
+      <p>
+        {process.env.AWS_USER_POOLS_ID}
+      </p>
+      <p>
+        {process.env.AWS_COGNITO_IDENTITY_POOL_ID}
+      </p>
+      <p>
+        {process.env.AWS_USER_POOLS_WEB_CLIENT_ID}
+      </p>
+      <p>
+        {
+          JSON.stringify(process.env.OAUTH)
+        }
+      </p>
 
     </Layout>
   )
