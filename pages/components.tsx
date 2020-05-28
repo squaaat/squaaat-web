@@ -1,11 +1,13 @@
 import React from 'react';
+import { NextPage } from 'next';
+
 import Button from 'components/common/Button';
 import 'styles/base.scss';
 import { getCalendar } from 'utils/calendar';
 import Calendar from 'components/common/Calendar';
 
 
-const ComponentsPage = () => {
+const ComponentsPage:NextPage = () => {
 
   console.log(getCalendar(2019,11));
   console.log(getCalendar(2019,12));

@@ -1,4 +1,3 @@
-import dayjs from 'dayjs';
 import moment from 'moment-timezone';
 
 export const getCalendar = (year:number, month:number) => {

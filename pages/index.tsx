@@ -5,6 +5,7 @@ import Amplify, { Auth, Hub } from 'aws-amplify';
 import awsconfig from '../aws-exports.js';
 
 import { AmplifySignOut } from '@aws-amplify/ui-react';
+import Header from 'components/common/Header';
 
 Amplify.configure(awsconfig);
 
@@ -41,7 +42,11 @@ const IndexPage = () => {
   }
   return (
     <Layout title={`!Squaaat (${process.env.STAGE})`}>
-      <h1 style={{fontSize: '64pt', textAlign:'center', letterSpacing: '4px'}}>!SQUAAAT</h1>
+      <Header />
+      <br/>
+      <br/>
+
+      <br/>
 
       {true && <>
         {user === null && <p style={{textAlign: 'center'}}>
