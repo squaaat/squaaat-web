@@ -9,7 +9,15 @@ const Header:React.FC<HeaderProps> = () => {
 
   return (
     <header className="Header">
-      <h1 style={{marginLeft: 40, fontSize: '32pt', letterSpacing: 2}}>!Squaaat</h1>
+      <div className="container">
+        <div className="box">
+          Arrow
+        </div>
+        <h1 className="logo-text">!Squaaat</h1>
+        <div className="box">
+          Arrow
+        </div>
+      </div>
     </header>
   )
 }

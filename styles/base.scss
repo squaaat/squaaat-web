@@ -1,7 +1,23 @@
-
-h1{
-  font-family: 'Bangers', cursive;
+@import './reset.scss';
+@import './variables.scss';
+body{
+  background-color: $bg-color;
 }
+
+
+main.Main{
+  max-width: $max-desktop-width;
+  width: 100%;
+  background-color: white;
+  margin: auto;
+  margin-top: $desktop-header-height;
+  min-height: calc(100vh - 70px);
+  border: 1px solid #f0f0f0;
+  @media (max-width: 768px){
+    margin-top: $mobile-header-height;
+  }
+}
+
 
 .MyButton{
   background-color: black;
