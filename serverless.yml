@@ -16,7 +16,7 @@ squaaat:
       cmd: 'node_modules/.bin/next'
     memory: 512                 # When assigned a number, both the default and api lambdas will assigned memory of that value. When assigned to an object, values for the default and api lambdas can be separately defined
     timeout: 10                 # same as above.
-    name:           # When assigned a string, both the default and api lambdas will assigned name of that value. When assigned to an object, values for the default and api lambdas can be separately defined
-      defaultLambda: ${env.lambdaName}
-      apiLambda: ${env.lambdaName}
+    name: ${env.lambdaName}          # When assigned a string, both the default and api lambdas will assigned name of that value. When assigned to an object, values for the default and api lambdas can be separately defined
+      # defaultLambda: ${env.lambdaName}
+      # apiLambda: ${env.lambdaName}
     publicDirectoryCache: true  # Customize the public/static folder asset caching policy. Assigning an object with value and/or test lets you customize the caching policy and the types of files being cached. Assigning false disables caching

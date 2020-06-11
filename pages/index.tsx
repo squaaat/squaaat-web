@@ -43,6 +43,12 @@ const IndexPage = () => {
   return (
     <Layout title={`!Squaaat (${process.env.STAGE})`}>
       <Header />
+
+      <main style={{marginTop: 72}}>
+        <div style={{background:'red'}}>
+          bbb
+        </div>
+      </main>
       <br/>
       <br/>
 
