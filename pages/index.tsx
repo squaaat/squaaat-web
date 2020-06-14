@@ -10,6 +10,8 @@ import Header from 'components/common/Header';
 Amplify.configure(awsconfig);
 
 const IndexPage = () => {
+
+  console.log(awsconfig);
   const [ user, setUser ] = React.useState<any>(null);
 
   React.useEffect(()=>{
