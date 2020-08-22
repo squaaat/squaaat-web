@@ -1,6 +1,15 @@
 version: 2.1
 orbs:
   node: circleci/node@3.0.0
+
+jobs:
+  node/test:
+    steps:
+      - checkout
+      - run:
+          name: echo test
+          command: |
+            echo "test"
 workflows:
   node-tests:
     jobs:
