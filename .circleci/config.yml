@@ -1,9 +1,7 @@
 version: 2.1
-orbs:
-  node: circleci/node@3.0.0
 
 jobs:
-  node/test:
+  oneshot:
     machine: true
     steps:
       - checkout
@@ -12,6 +10,7 @@ jobs:
           command: |
             echo "test"
 workflows:
-  node-tests:
+  version: 2
+  node-test:
     jobs:
-      - node/test
+      - oneshot
