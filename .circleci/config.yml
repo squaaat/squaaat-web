@@ -13,6 +13,10 @@ jobs:
           command: |
             echo "Build Start..."
       - run:
+          name: global install
+          command: |
+            npm install -g eslint serverless
+      - run:
           name: npm nstall
           command: |
             npm install
