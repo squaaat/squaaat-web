@@ -5,6 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
+    "lint": "eslint \"components/**/*.{ts,tsx}\" \"pages/**/*.{ts,tsx}\"",
     "type-check": "tsc"
   },
   "dependencies": {
