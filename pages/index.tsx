@@ -1,20 +1,20 @@
-import React from 'react';
-import Layout from '../components/Layout'
-import 'styles/base.scss';
-import Amplify, { Auth, Hub } from 'aws-amplify';
-import awsconfig from '../aws-exports.js';
+import React from "react";
+import Layout from "../components/Layout";
+import "styles/base.scss";
+import Amplify, { Auth, Hub } from "aws-amplify";
+import awsconfig from "../aws-exports.js";
 
-import { AmplifySignOut } from '@aws-amplify/ui-react';
-import Header from 'components/common/Header';
+import { AmplifySignOut } from "@aws-amplify/ui-react";
+import Header from "components/common/Header";
+import { NextPage } from "next";
 
 Amplify.configure(awsconfig);
 
-const IndexPage = () => {
-
+const IndexPage: NextPage = () => {
   console.log(awsconfig);
-  const [ user, setUser ] = React.useState<any>(null);
+  const [user, setUser] = React.useState<null | string>(null);
 
-  React.useEffect(()=>{
+  React.useEffect(() => {
     Hub.listen("auth", ({ payload: { event, data } }) => {
       console.log(event);
       switch (event) {
@@ -27,69 +27,59 @@ const IndexPage = () => {
           break;
       }
     });
-    Auth.currentAuthenticatedUser().then((res)=>{
-      setUser(res);
-      console.log('login...');
-    }).catch((e)=>{
-      console.log(e);
-      console.log("Not signed in");
-    })
-  },[]);
+    Auth.currentAuthenticatedUser()
+      .then(res => {
+        setUser(res);
+        console.log("login...");
+      })
+      .catch(e => {
+        console.log(e);
+        console.log("Not signed in");
+      });
+  }, []);
 
-  function oauth(provider: string){
-    Auth.federatedSignIn({ customProvider: provider }).then((res)=>{
+  function oauth(provider: string) {
+    Auth.federatedSignIn({ customProvider: provider }).then(res => {
       console.log(res);
-    })
-
+    });
   }
   return (
     <Layout title={`!Squaaat (${process.env.STAGE})`}>
       <Header />
 
-      <main style={{marginTop: 72}}>
-        <div style={{background:'red'}}>
-          bbb
-        </div>
+      <main style={{ marginTop: 72 }}>
+        <div style={{ background: "red" }}>bbb</div>
       </main>
-      <br/>
-      <br/>
+      <br />
+      <br />
 
-      <br/>
+      <br />
 
-      {true && <>
-        {user === null && <p style={{textAlign: 'center'}}>
-          <button onClick={() => oauth('Google')}>Open Google</button>
-          <button disabled onClick={() => Auth.federatedSignIn({ customProvider: "Facebook"})}>Open Facebook</button>
-          <AmplifySignOut />
-
-        </p>}
-        {
-          user && 
-          <div style={{maxWidth: '768px', margin: 'auto'}}>
-            <p>{user.username}</p>
-            <AmplifySignOut />
-
-          </div>
-        }
-      </>}
-      <p>
-        {process.env.AWS_USER_POOLS_ID}
-      </p>
-      <p>
-        {process.env.AWS_COGNITO_IDENTITY_POOL_ID}
-      </p>
-      <p>
-        {process.env.AWS_USER_POOLS_WEB_CLIENT_ID}
-      </p>
-      <p>
-        {
-          JSON.stringify(process.env.OAUTH)
-        }
-      </p>
-
+      {true && (
+        <>
+          {user === null && (
+            <p style={{ textAlign: "center" }}>
+              <button onClick={() => oauth("Google")}>Open Google</button>
+              <button disabled onClick={() => Auth.federatedSignIn({ customProvider: "Facebook" })}>
+                Open Facebook
+              </button>
+              <AmplifySignOut />
+            </p>
+          )}
+          {user && (
+            <div style={{ maxWidth: "768px", margin: "auto" }}>
+              <p>{user.username}</p>
+              <AmplifySignOut />
+            </div>
+          )}
+        </>
+      )}
+      <p>{process.env.AWS_USER_POOLS_ID}</p>
+      <p>{process.env.AWS_COGNITO_IDENTITY_POOL_ID}</p>
+      <p>{process.env.AWS_USER_POOLS_WEB_CLIENT_ID}</p>
+      <p>{JSON.stringify(process.env.OAUTH)}</p>
     </Layout>
-  )
+  );
+};
 
-}
-
-export default (IndexPage);
+export default IndexPage;

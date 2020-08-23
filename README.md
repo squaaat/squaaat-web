@@ -1,6 +1,6 @@
-# squaaat-web
+ya# squaaat-web
 
-**squaaat** 웹 리포지토리 입니다. 
+**squaaat** 웹 리포지토리 입니다.
 
 ## How to use it?
 
@@ -15,4 +15,3 @@ yarn dev
 sls --stage dev
 sls --stage prod
 ```
-

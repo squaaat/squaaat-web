@@ -1,0 +1,16 @@
+version: 2.1
+
+jobs:
+  oneshot:
+    machine: true
+    steps:
+      - checkout
+      - run:
+          name: echo test
+          command: |
+            echo "test"
+workflows:
+  version: 2
+  node-test:
+    jobs:
+      - oneshot
