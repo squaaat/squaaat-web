@@ -20,6 +20,10 @@ jobs:
           name: build
           command: |
             npm run build
+      - run:
+          name: deploy
+          command: |
+            npm run deploy:dev
   commitdev:
     docker:
       - image: node:12.16.3-alpine3.11
