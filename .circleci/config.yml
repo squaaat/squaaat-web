@@ -12,13 +12,17 @@ jobs:
           command: |
             echo "test"
       - run:
+          name: install eslint
+          command: |
+            npm install -g eslint
+      - run:
           name: npm install
           command: |
             npm install
       - run:
           name: npm run lint
           command: |
-            eslint ./pages/*
+            npm run lint
 workflows:
   version: 2
   node-test:
