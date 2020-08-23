@@ -36,7 +36,7 @@ jobs:
       - run:
           name: install eslint
           command: |
-            npm install -g eslint
+            npm install -g eslint serverless
       - run:
           name: npm install
           command: |
