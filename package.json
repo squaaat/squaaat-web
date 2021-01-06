@@ -15,7 +15,7 @@
     "@zeit/next-sass": "^1.0.1",
     "aws-amplify": "^3.0.12",
     "aws-amplify-react": "^4.1.11",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dayjs": "^1.8.27",
     "dotenv": "^8.2.0",
     "moment-timezone": "^0.5.31",
